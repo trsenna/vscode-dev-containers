@@ -1,4 +1,4 @@
-FROM trsenna/vscodedevimages-foundation:base
+FROM trsenna/vscodedevimages-miniconda:3.8
 
 # ARG USERNAME=vscode
 # ARG USER_UID=1000
@@ -15,9 +15,5 @@ FROM trsenna/vscodedevimages-foundation:base
 #     && apt-get autoremove -y \
 #     && apt-get clean -y
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda \
-    && chown -R vscode:vscode /opt/miniconda \
+RUN chown -R vscode:vscode /opt/miniconda \
     && sudo -u vscode /opt/miniconda/bin/conda init bash
-
-ENV PATH=$PATH:/opt/miniconda/pcondabin:/opt/miniconda/bin
