@@ -1,0 +1,15 @@
+{
+	"name": "Miniconda",
+	"dockerComposeFile": "docker-compose.yml",
+	"workspaceFolder": "/workspace",
+	"service": "app",
+	"settings": {
+		"python.pythonPath": "/opt/miniconda/bin/python"
+	},
+	"extensions": [
+		"esbenp.prettier-vscode",
+		"ms-python.python",
+		"ms-python.vscode-pylance"
+	],
+	"remoteUser": "vscode"
+}

@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      - webroot-data:/var/www/html
+    command: sleep infinity
+    ports:
+      - '8080:80'
+
+  db:
+    image: mysql:5
+    restart: unless-stopped
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_PASSWORD: app@secret
+      MYSQL_ROOT_PASSWORD: root@secret
+      MYSQL_USER: app
+
+volumes:
+  mysql-data:
+  webroot-data:
